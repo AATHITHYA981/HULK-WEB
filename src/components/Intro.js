@@ -30,9 +30,27 @@ background-size: 100% 2px;
     border-left: 2px solid ${props => props.theme.body};
     border-right: 2px solid ${props => props.theme.text};
 
-
     z-index:1;
 
+    @media (max-width: 768px) {
+        width: 85vw;
+        height: 70vh;
+        flex-direction: column;
+        border-right: none;
+        border-left: none;
+        border-top: 2px solid ${props => props.theme.body};
+        border-bottom: 2px solid ${props => props.theme.text};
+        background: linear-gradient(
+            to bottom,
+            ${props => props.theme.body} 50%,
+            ${props => props.theme.text} 50%) right,
+            linear-gradient(
+            to bottom,
+            ${props => props.theme.body} 50%,
+            ${props => props.theme.text} 50%) left;
+        background-repeat: no-repeat;
+        background-size: 2px 100%;
+    }
 `
 const SubBox = styled.div`
 width: 50%;
@@ -46,6 +64,14 @@ display: flex;
     transform: translate(-50%,0%);
     width: 100%;
     height: auto;
+}
+
+@media (max-width: 768px) {
+    width: 100%;
+    height: 50%;
+    .pic {
+        width: 70%;
+    }
 }
 `
 
@@ -63,11 +89,18 @@ justify-content: space-evenly;
     color: ${props => `rgba(${props.theme.bodyRgba},0.6)` };
     font-size: calc(0.5rem + 1.5vw);
     font-weight:300;
-
 }
 
-
-
+@media (max-width: 768px) {
+    font-size: calc(1em + 1.5vw);
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+    
+    h1, h3, h6 {
+        margin: 0;
+    }
+}
 `
 
 const Intro = () => {
