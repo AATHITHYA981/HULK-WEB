@@ -1,4 +1,5 @@
 import React from 'react'
+import BackButton from '../subComponents/BackButton';
 import styled, { ThemeProvider } from 'styled-components'
 import {lightTheme} from './Themes';
 import { Design, Develope} from './AllSvgs';
@@ -82,11 +83,14 @@ ul,p{
 }
 `
 
+ 
+
 const MySkillsPage = () => {
     return (
         <ThemeProvider theme={lightTheme}>
 <Box>
 
+<BackButton theme='light'/>
 <LogoComponent theme='light'/>
 <SocialIcons theme='light'/>
 <PowerButton />

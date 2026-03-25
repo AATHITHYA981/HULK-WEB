@@ -1,13 +1,13 @@
 import React, { useRef, useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 
-import music from "../assets/audio/u-said-it-v13-1167.mp3"
+import music from "../assets/audio/google-google.mp3"
 
 const Box = styled.div`
 display:flex;
 cursor:pointer;
 position:fixed;
-left:8rem;
+left: calc(25vw + 1rem);
 top:3rem;
 z-index:10;
 

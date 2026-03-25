@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import BackButton from '../subComponents/BackButton';
 import styled, { ThemeProvider } from "styled-components";
 import { DarkTheme } from "./Themes";
 import { motion } from "framer-motion";
@@ -53,6 +54,8 @@ const container = {
   },
 };
 
+ 
+
 const WorkPage = () => {
   const ref = useRef(null);
   const yinyang = useRef(null);
@@ -76,6 +79,7 @@ const WorkPage = () => {
   return (
     <ThemeProvider theme={DarkTheme}>
       <Box>
+        <BackButton theme="dark" />
         <LogoComponent theme="dark" />
         <SocialIcons theme="dark" />
         <PowerButton />

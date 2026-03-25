@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import LogoComponent from '../subComponents/LogoComponent'
 import PowerButton from '../subComponents/PowerButton'
@@ -35,6 +35,9 @@ top: 2rem;
 right: calc(1rem + 2vw);
 text-decoration: none;
 z-index:1;
+@media (max-width: 768px) {
+    color: ${props => props.click ? props.theme.body : props.theme.text};
+}
 `
 const BLOG = styled(NavLink)`
 color: ${props => props.theme.text};
@@ -44,6 +47,9 @@ right: calc(1rem + 2vw);
 transform: rotate(90deg) translate(-50%, -50%);
 text-decoration: none;
 z-index:1;
+@media (max-width: 768px) {
+    text-shadow: ${props => props.click ? '0 0 4px #fff' : 'none'};
+}
 `
 const WORK = styled(NavLink)`
 color: ${props => props.click ? props.theme.body : props.theme.text};
@@ -54,6 +60,10 @@ left: calc(1rem + 2vw);
 transform: translate(-50%, -50%) rotate(-90deg) ;
 text-decoration: none;
 z-index:1;
+@media (max-width: 768px) {
+    color: ${props => props.theme.text};
+    text-shadow: ${props => props.click ? '0 0 4px #fff' : 'none'};
+}
 `
 
 const BottomBar = styled.div`
@@ -65,12 +75,18 @@ width: 100%;
 
 display: flex;
 justify-content: space-evenly;
+@media (max-width: 768px) {
+    bottom: 3rem;
+}
 `
 
 const ABOUT = styled(NavLink)`
 color: ${props => props.click ? props.theme.body : props.theme.text};
 text-decoration: none;
 z-index:1;
+@media (max-width: 768px) {
+    color: ${props => props.theme.text};
+}
 `
 const SKILLS = styled(NavLink)`
 color: ${props => props.theme.text};
@@ -134,8 +150,8 @@ transition: height 0.5s ease, width 1s ease 0.5s;
 
 
 const Main = () => {
-
-    const [click, setClick] = useState(false);
+    const location = useLocation();
+    const [click, setClick] = useState(location.state?.showIntro || false);
 
     const handleClick = () => {
         setClick(!click);
@@ -163,7 +179,7 @@ const Main = () => {
                 <span>click here</span>
             </Center>
             
-            <Contact target="_blank" rel="noopener noreferrer" href="mailto:aathithya6788@gmail.com">
+            <Contact target="_blank" rel="noopener noreferrer" href="mailto:aathithya6788@gmail.com" click={+click}>
                 <motion.h2
                 initial={{
                     y:-200,
@@ -182,7 +198,7 @@ const Main = () => {
             </Contact>
 
 
-            <BLOG to="/blog">
+            <BLOG to="/blog" click={+click}>
                 <motion.h2
                 initial={{
                     y:-200,
@@ -231,7 +247,7 @@ const Main = () => {
                     About.
                 </motion.h2>
             </ABOUT>
-            <SKILLS to="/skills">
+            <SKILLS to="/skills" click={+click}>
                 <motion.h2
                 initial={{
                     y:200,

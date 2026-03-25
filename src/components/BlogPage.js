@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import BackButton from '../subComponents/BackButton';
 import styled from 'styled-components'
 import img from "../assets/Images/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg"
 import LogoComponent from '../subComponents/LogoComponent'
@@ -56,6 +57,8 @@ const container = {
   
   }
 
+ 
+
 const BlogPage = () => {
 
     const [numbers, setNumbers] = useState(0);
@@ -76,6 +79,7 @@ const BlogPage = () => {
         }}
         >
             <Container>
+                <BackButton />
                 <LogoComponent />
                 <PowerButton />
                 <SocialIcons />

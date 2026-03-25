@@ -40,7 +40,7 @@ cursor: pointer;
 const PowerButton = () => {
     return (
         <Power>
-        <NavLink to="/">
+        <NavLink to="/" state={{ showIntro: true }}>
         <PowerBtn width={30} height={30} fill='currentColor' />
         </NavLink>
         </Power>

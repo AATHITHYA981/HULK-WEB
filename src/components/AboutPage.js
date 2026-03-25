@@ -1,4 +1,5 @@
 import React from 'react'
+import BackButton from '../subComponents/BackButton';
 import styled, { keyframes, ThemeProvider } from 'styled-components'
 import {DarkTheme} from './Themes';
 
@@ -58,11 +59,14 @@ const Main =  styled.div`
 
 
 
+ 
+
 const AboutPage = () => {
     return (
         <ThemeProvider theme={DarkTheme}>
 <Box>
 
+<BackButton theme='dark'/>
 <LogoComponent theme='dark'/>
 <SocialIcons theme='dark'/>
 <PowerButton />

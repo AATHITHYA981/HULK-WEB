@@ -17,7 +17,11 @@ z-index:3;
 `
 
 const LogoComponent = (props) => {
-    return null;
+    return (
+        <Logo color={props.theme}>
+          Aa
+        </Logo>
+    );
 }
 
 export default LogoComponent
